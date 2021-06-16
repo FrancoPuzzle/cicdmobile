@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "e2e:build": "detox build --configuration",
+    "e2e:test": "detox test --configuration",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -148,16 +150,20 @@
         "name": "iPhone 8"
       },
       "android.emu.debug": {
+        "type": "android.emulator",
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
         "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
-        "type": "android.emulator",
-        "name": "emu"
+        "device": {
+          "avdName": "Pixel_API_29_AOSP"
+        }
       },
       "android.emu.release": {
+        "type": "android.emulator",
         "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
         "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=release && cd ..",
-        "type": "android.emulator",
-        "name": "emu"
+        "device": {
+          "avdName": "Pixel_API_29_AOSP"
+        }
       }
     },
     "test-runner": "jest"
