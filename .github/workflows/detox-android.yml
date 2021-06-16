@@ -77,6 +77,12 @@ jobs:
   build:
     name: E2E (Android)
     runs-on: macOS-latest
+    env:
+      STAGING_API_URL: 'https://rickandmortyapi.com/graphql'
+      PRODUCTION_API_URL: ''
+      IS_STORYBOOK: false
+      SENTRY_DSN: ''
+      SEGMENT_DSN: ''
 
     steps:
       - uses: actions/checkout@v1
