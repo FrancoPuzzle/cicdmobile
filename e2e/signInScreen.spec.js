@@ -1,7 +1,7 @@
 describe('Sign In Screen', () => {
 
   beforeEach(async () => {
-    await device.launchApp();
+    await device.reloadReactNative();
   });
 
   it('Should show the Welcome Screen', async () => {
