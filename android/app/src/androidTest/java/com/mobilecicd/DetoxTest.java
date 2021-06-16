@@ -1,7 +1,6 @@
 package com.mobilecicd;
 
 import com.wix.detox.Detox;
-import com.wix.detox.config.DetoxConfig;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -15,14 +14,11 @@ import androidx.test.rule.ActivityTestRule;
 @LargeTest
 public class DetoxTest {
 
-  @Rule
-  // Replace 'MainActivity' with the value of android:name entry in
-  // <activity> in AndroidManifest.xml
-  public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class, false, false);
+    @Rule
+    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class, false, false);
 
-  @Test
-  public void runDetoxTests() {
-    DetoxConfig detoxConfig = new DetoxConfig();
-    Detox.runTests(mActivityRule, detoxConfig);
-  }
+    @Test
+    public void runDetoxTests() throws InterruptedException {
+        Detox.runTests(mActivityRule);
+    }
 }
