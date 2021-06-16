@@ -7,11 +7,11 @@ jobs:
   build:
     runs-on: macos-latest
     env:
-      DEV_API_URL: ${{ secrets.API_URL }}
-      PRODUCTION_API_URL: ""
+      DEV_API_URL: "https://rickandmortyapi.com/graphql"
+      PRODUCTION_API_URL: ''
       IS_STORYBOOK: false
-      SENTRY_DSN: ""
-      SEGMENT_DSN: ""
+      SENTRY_DSN: ''
+      SEGMENT_DSN: ''
     steps:
       - name: Checkout project
         uses: actions/checkout@v1
