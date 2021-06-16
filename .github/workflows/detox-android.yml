@@ -1,8 +1,8 @@
 name: Android e2e detox
 on:
-  pull_request:
+  push:
     branches:
-      - main
+     - main
 jobs:
   build:
     runs-on: macos-latest
