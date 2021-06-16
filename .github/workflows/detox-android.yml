@@ -1,46 +1,37 @@
 name: Android e2e detox
-
 on:
-  push:
+  pull_request:
     branches:
       - main
-
 jobs:
   build:
     runs-on: macos-latest
     env:
-      STAGING_API_URL: 'https://rickandmortyapi.com/graphql'
-      PRODUCTION_API_URL: ''
+      DEV_API_URL: ${{ secrets.API_URL }}
+      PRODUCTION_API_URL: ""
       IS_STORYBOOK: false
-      SENTRY_DSN: ''
-      SEGMENT_DSN: ''
-
+      SENTRY_DSN: ""
+      SEGMENT_DSN: ""
     steps:
-      - name: Checkout
+      - name: Checkout project
         uses: actions/checkout@v1
-
-      - name: Node
+      - name: Specify node version
         uses: actions/setup-node@v1
         with:
-          node-version: 14
-
+          node-version: 12
       - name: Use specific Java version for sdkmanager to work
         uses: joschi/setup-jdk@v2
         with:
-          java-version: 'openjdk8'
-          architecture: 'x64'
-
+          java-version: "openjdk8"
+          architecture: "x64"
       - name: Download Android Emulator Image
         run: |
           echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install "system-images;android-29;google_apis;x86"
           echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd --force --name emu --device "Nexus 5X" -k 'system-images;android-29;google_apis;x86'
           $ANDROID_HOME/emulator/emulator -list-avds
-
       - name: Install node_modules & Deploy
         run: |
-          yarn install --frozen-lockfile
-          yarn e2e:build:android:debug
-
+         yarn install --frozen-lockfile && yarn e2e:build:android:release
       - name: Android test
         timeout-minutes: 10
         continue-on-error: true
@@ -50,17 +41,6 @@ jobs:
           $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
           $ANDROID_HOME/platform-tools/adb devices
           echo "Emulator started"
-
-      # - name: Android Emulator
-      #   timeout-minutes: 10
-      #   continue-on-error: true
-      #   run: |
-      #     echo "Starting emulator"
-      #     nohup $ANDROID_HOME/emulator/emulator -avd emu -no-audio -no-snapshot -no-window &
-      #     $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
-      #     $ANDROID_HOME/platform-tools/adb devices
-      #     echo "Emulator started"
-
-      - name: Build Android
+      - name: Build Android and run detox
         run: |
-          yarn start & yarn e2e:test:android:debug
+          yarn start & yarn e2e:test:android:release
