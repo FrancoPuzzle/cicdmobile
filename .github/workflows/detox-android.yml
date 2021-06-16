@@ -43,4 +43,4 @@ jobs:
           echo "Emulator started"
       - name: Build Android and run detox
         run: |
-          yarn start & yarn e2e:test:android:release
+          yarn start && yarn e2e:test:android:release --cleanup --debug-synchronization 200
