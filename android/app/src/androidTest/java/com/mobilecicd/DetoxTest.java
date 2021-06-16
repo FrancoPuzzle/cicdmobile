@@ -18,7 +18,7 @@ public class DetoxTest {
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class, false, false);
 
     @Test
-    public void runDetoxTests() throws InterruptedException {
+    public void runDetoxTests() {
         Detox.runTests(mActivityRule);
     }
 }

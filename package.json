@@ -150,11 +150,12 @@
         "name": "iPhone 8"
       },
       "android.emu.debug": {
-        "type": "android.emulator",
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
         "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.emulator",
+        "name": "emu",
         "device": {
-          "avdName": "Pixel_API_29_AOSP"
+          "avdName": "emu"
         }
       },
       "android.emu.release": {
