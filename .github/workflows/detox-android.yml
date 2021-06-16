@@ -114,5 +114,5 @@ jobs:
           target: default
           arch: x86_64
           profile: pixel
-          avd-name: Pixel_API_29_AOSP
+          avd-name: emu
           script: bash scripts/run-e2e-android-release.sh
