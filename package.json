@@ -142,8 +142,8 @@
         }
       },
       "ios.sim.release": {
-        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/RNDetoxGa.app",
-        "build": "xcodebuild -workspace ios/RNDetoxGa.xcworkspace -scheme RNDetoxGa -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
+        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/mobilecicd.app",
+        "build": "xcodebuild -workspace ios/mobilecicd.xcworkspace -scheme mobilecicd -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
         "name": "iPhone 8"
       },
