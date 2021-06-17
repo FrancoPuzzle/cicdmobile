@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "e2e:build": "detox build --configuration",
-    "e2e:test": "detox test --configuration",
+    "e2e:build": "detox build -c android.emu.debug",
+    "e2e:test": "detox test -c android.emu.debug",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -153,19 +153,13 @@
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
         "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
         "type": "android.emulator",
-        "name": "emu",
-        "device": {
-          "avdName": "emu"
-        }
+        "name": "emu"
       },
       "android.emu.release": {
         "type": "android.emulator",
         "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
         "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=release && cd ..",
-        "name": "emu",
-        "device": {
-          "avdName": "emu"
-        }
+        "name": "emu"
       }
     },
     "test-runner": "jest"
