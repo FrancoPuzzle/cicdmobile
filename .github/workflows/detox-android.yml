@@ -139,4 +139,4 @@ jobs:
           echo "Emulator started"
 
       - name: Run Detox Test(s)
-        run: bash scripts/run-e2e-android-release.sh
+        run: yarn start & yarn e2e:test
