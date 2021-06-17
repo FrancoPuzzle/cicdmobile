@@ -139,6 +139,4 @@ jobs:
           echo "Emulator started"
 
       - name: Run Detox Test(s)
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          script: bash scripts/run-e2e-android-release.sh
+        run: bash scripts/run-e2e-android-release.sh
