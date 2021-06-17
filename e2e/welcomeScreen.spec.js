@@ -1,7 +1,7 @@
 describe('Welcome Screen Test', () => {
-  beforeEach(async () => {
-    await device.reloadReactNative();
-  });
+  // beforeEach(async () => {
+  //   await device.reloadReactNative();
+  // });
 
   it('Should show the Welcome Screen', async () => {
     await expect(element(by.id('welcome_screen'))).toBeVisible();
