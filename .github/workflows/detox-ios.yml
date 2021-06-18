@@ -1,67 +1,11 @@
-# name: iOS
+name: iOS
 
-# on: [push]
-
-# jobs:
-#   build:
-#     runs-on: macos-latest
-#     timeout-minutes: 15
-
-#     env:
-#       DEVELOPER_DIR: /Applications/Xcode_11.2.app
-
-#     steps:
-#     - name: Checkout
-#       uses: actions/checkout@v1
-#       with:
-#         fetch-depth: 1
-
-#     - name: Node
-#       uses: actions/setup-node@v1
-
-#     - name: Cache node modules
-#       uses: actions/cache@v1
-#       id: cache
-#       with:
-#         path: node_modules
-#         key: node-modules-${{ hashFiles('**/yarn.lock') }}
-
-#     - name: Rebuild detox
-#       if: steps.cache.outputs.cache-hit == 'true'
-#       run: yarn detox clean-framework-cache && yarn detox build-framework-cache
-
-#     - name: Install Dependencies
-#       if: steps.cache.outputs.cache-hit != 'true'
-#       run: yarn install
-
-#     - name: Cache Pods
-#       uses: actions/cache@v1
-#       id: podcache
-#       with:
-#         path: ios/Pods
-#         key: pods-${{ hashFiles('**/Podfile.lock') }}
-
-#     - name: Update Pods
-#       run: |
-#         gem update cocoapods xcodeproj
-#         cd ios && pod install && cd ..
-
-#     - run: brew tap wix/brew
-#     - run: brew install applesimutils
-#     - run: yarn detox build e2e --configuration ios.sim.release
-#     - run: yarn detox test e2e --configuration ios.sim.release --cleanup --debug-synchronization 200
-
-name: E2E (iOS)
-
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
   build:
-    name: E2E (iOS)
-    runs-on: macOS-latest
+    runs-on: macos-latest
+    timeout-minutes: 15
     env:
       STAGING_API_URL: 'https://rickandmortyapi.com/graphql'
       PRODUCTION_API_URL: ''
@@ -69,27 +13,45 @@ jobs:
       SENTRY_DSN: ''
       SEGMENT_DSN: ''
 
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_11.2.app
+
     steps:
-      - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
 
-      - name: Install Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12'
+    - name: Node
+      uses: actions/setup-node@v1
 
-      - name: Install Yarn Dependencies
-        run: yarn install
+    - name: Cache node modules
+      uses: actions/cache@v1
+      id: cache
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Pod Dependencies
-        run: cd ./ios && pod install && cd ..
+    - name: Rebuild detox
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: yarn detox clean-framework-cache && yarn detox build-framework-cache
 
-      - name: Install Detox Dependencies
-        run: |
-          brew tap wix/brew
-          brew install applesimutils
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: yarn install
 
-      - name: Run Detox Build
-        run: yarn e2e:build ios.sim.release
+    - name: Cache Pods
+      uses: actions/cache@v1
+      id: podcache
+      with:
+        path: ios/Pods
+        key: pods-${{ hashFiles('**/Podfile.lock') }}
 
-      - name: Run Detox Test(s)
-        run: bash scripts/run-e2e-ios-release.sh
+    - name: Update Pods
+      run: |
+        gem update cocoapods xcodeproj
+        cd ios && pod install && cd ..
+    - run: brew tap wix/brew
+    - run: brew install applesimutils
+    - run: yarn detox build e2e --configuration ios.sim.release
+    - run: yarn detox test e2e --configuration ios.sim.release --cleanup --debug-synchronization 200
