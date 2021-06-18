@@ -31,7 +31,9 @@
     "prestorybook": "rnstl",
     "start:storybook": "npm-run-all -p start:cache-clean storybook",
     "build-detox-android": "detox build -c android.emu.debug",
-    "test-detox-android": "detox test -c android.emu.debug"
+    "test-detox-android": "detox test -c android.emu.debug",
+    "build-detox-ios": "detox build -c ios.sim.release",
+    "test-detox-ios": "detox test -c ios.sim.release"
   },
   "husky": {
     "hooks": {
@@ -115,7 +117,8 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-styled-components": "^1.12.0",
-    "detox": "18.2.2",
+    "detox": "^14.5.1",
+    "jest": "^24.8.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-import": "^2.23.4",
@@ -123,7 +126,6 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.6",
-    "jest": "^25.1.0",
     "jest-transform-stub": "^2.0.0",
     "lint-staged": "^10.5.3",
     "metro-react-native-babel-preset": "^0.59.0",
@@ -138,20 +140,16 @@
   "detox": {
     "configurations": {
       "ios.sim.debug": {
-        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/mobilecicd.app",
-        "build": "xcodebuild -workspace ios/mobilecicd.xcworkspace -scheme mobilecicd -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "binaryPath": "ios/build/app/Build/Products/Debug-iphonesimulator/mobilecicd.app",
+        "build": "xcodebuild -workspace ios/mobilecicd.xcworkspace -scheme mobilecicd -configuration Debug -sdk iphonesimulator -UseModernBuildSystem=NO -derivedDataPath ios/build/app -quiet",
         "type": "ios.simulator",
-        "device": {
-          "type": "iPhone 11"
-        }
+        "name": "iPhone 11"
       },
       "ios.sim.release": {
+        "binaryPath": "ios/build/app/Build/Products/Release-iphonesimulator/mobilecicd.app",
+        "build": "xcodebuild -workspace ios/mobilecicd.xcworkspace -scheme mobilecicd -configuration Release -sdk iphonesimulator -derivedDataPath ios/build/app -quiet",
         "type": "ios.simulator",
-        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/mobilecicd.app",
-        "build": "xcodebuild -workspace ios/mobilecicd.xcworkspace -scheme mobilecicd -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
-        "device": {
-          "type": "iPhone 8"
-        }
+        "name": "iPhone 11"
       },
       "android.emu.debug": {
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",

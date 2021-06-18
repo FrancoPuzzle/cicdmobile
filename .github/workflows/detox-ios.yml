@@ -61,7 +61,7 @@ on:
 jobs:
   build:
     name: E2E (iOS)
-    runs-on: macOS-latest
+    runs-on: macos-latest
     env:
       STAGING_API_URL: 'https://rickandmortyapi.com/graphql'
       PRODUCTION_API_URL: ''
@@ -70,26 +70,26 @@ jobs:
       SEGMENT_DSN: ''
 
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout project
+        uses: actions/checkout@v1
 
-      - name: Install Node
+      - name: Specify node version
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: 12
 
-      - name: Install Yarn Dependencies
-        run: yarn install
-
-      - name: Install Pod Dependencies
-        run: cd ./ios && pod install && cd ..
-
-      - name: Install Detox Dependencies
+      - name: Detox setup
         run: |
           brew tap wix/brew
           brew install applesimutils
 
-      - name: Run Detox Build
-        run: yarn e2e:build:ios ios.sim.release
+      - name: Install node_modules & deploy with specific XCode version
+        run: |
+          yarn install --frozen-lockfile
+          yarn build-detox-ios
 
-      - name: Run Detox Test(s)
-        run: bash scripts/run-e2e-ios-release.sh
+      - name: iOS test
+        timeout-minutes: 10
+        run: |
+          npx detox clean-framework-cache && npx detox build-framework-cache
+          yarn test-detox-ios
