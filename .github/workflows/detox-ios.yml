@@ -89,7 +89,7 @@ jobs:
           brew install applesimutils
 
       - name: Run Detox Build
-        run: yarn e2e:build:ios
+        run: yarn e2e:build:ios ios.sim.release
 
       - name: Run Detox Test(s)
         run: bash scripts/run-e2e-ios-release.sh

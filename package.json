@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "e2e:build": "detox build -c android.emu.release",
-    "e2e:build:ios": "detox build -c ios.sim.release",
+    "e2e:build:ios": "detox build --configuration",
     "e2e:test": "detox test -c android.emu.release",
-    "e2e:test:ios": "detox test -c ios.sim.releasee",
+    "e2e:test:ios": "detox test  --configuration",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -146,10 +146,12 @@
         }
       },
       "ios.sim.release": {
+        "type": "ios.simulator",
         "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/mobilecicd.app",
         "build": "xcodebuild -workspace ios/mobilecicd.xcworkspace -scheme mobilecicd -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
-        "type": "ios.simulator",
-        "name": "iPhone 8"
+        "device": {
+          "type": "iPhone 8"
+        }
       },
       "android.emu.debug": {
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
