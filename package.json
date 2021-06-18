@@ -153,13 +153,17 @@
         "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
         "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
         "type": "android.emulator",
-        "name": "emu"
+        "device": {
+          "avdName": "emu"
+        }
       },
       "android.emu.release": {
         "type": "android.emulator",
         "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
         "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=release && cd ..",
-        "name": "emu"
+        "device": {
+          "avdName": "emu"
+        }
       }
     },
     "test-runner": "jest"
