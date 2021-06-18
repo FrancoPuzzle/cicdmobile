@@ -21,6 +21,6 @@ public class DetoxTest {
 
   @Test
   public void runDetoxTests() {
-    Detox.runTests(mActivityRule, detoxConfig);
+    Detox.runTests(mActivityRule);
   }
 }
