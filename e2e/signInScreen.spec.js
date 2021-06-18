@@ -1,8 +1,7 @@
 describe('Sign In Screen', () => {
-
-  // beforeEach(async () => {
-  //   await device.reloadReactNative();
-  // });
+  beforeEach(async () => {
+    //   await device.reloadReactNative();
+  });
 
   it('Should show the Welcome Screen', async () => {
     await expect(element(by.id('welcome_screen'))).toBeVisible();
@@ -14,20 +13,20 @@ describe('Sign In Screen', () => {
     await expect(element(by.id('signin_screen'))).toBeVisible();
   });
 
-  // it('Should have email and password fields, and a Sign In button', async () => {
-  //   await expect(element(by.id('email_field'))).toBeVisible();
-  //   await expect(element(by.id('password_field'))).toBeVisible();
-  //   await expect(element(by.text('Sign In'))).toBeVisible();
-  // });
+  it('Should have email and password fields, and a Sign In button', async () => {
+    await expect(element(by.id('email_field'))).toBeVisible();
+    await expect(element(by.id('password_field'))).toBeVisible();
+    await expect(element(by.text('Sign In'))).toBeVisible();
+  });
 
-  // it('Should be able to delete the text of the Email in the text Input', async () => {
-  //   await element(by.id('email_field')).clearText();
-  // });
+  it('Should be able to delete the text of the Email in the text Input', async () => {
+    await element(by.id('email_field')).clearText();
+  });
 
-  // it('Should not be able to Sign In if the email field is invalid.', async () => {
-  //   await element(by.text('Sign In')).tap();
-  //   await expect(element(by.id('signin_screen'))).toBeVisible();
-  // });
+  it('Should not be able to Sign In if the email field is invalid.', async () => {
+    await element(by.text('Sign In')).tap();
+    await expect(element(by.id('signin_screen'))).toBeVisible();
+  });
 
   // it('Should be able to write the Email in the text Input', async () => {
   //   await element(by.id('email_field')).typeText('user@email.com');
