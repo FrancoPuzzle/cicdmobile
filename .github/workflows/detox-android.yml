@@ -5,7 +5,6 @@ on: [push]
 jobs:
   build:
     runs-on: macos-latest
-    timeout-minutes: 15
     env:
       STAGING_API_URL: 'https://rickandmortyapi.com/graphql'
       PRODUCTION_API_URL: ''
@@ -50,4 +49,4 @@ jobs:
           $ANDROID_HOME/platform-tools/adb devices
           echo "Emulator started"
       - name: Android Detox
-        run: yarn start & yarn test-detox-android
+        run: yarn android & yarn test-detox-android
