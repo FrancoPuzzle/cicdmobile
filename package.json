@@ -154,7 +154,7 @@
         "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
         "type": "android.emulator",
         "device": {
-          "avdName": "emu"
+          "avdName": "Pixel_API_29_AOSP"
         }
       },
       "android.emu.release": {
@@ -162,7 +162,7 @@
         "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
         "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=release && cd ..",
         "device": {
-          "avdName": "emu"
+          "avdName": "Pixel_API_29_AOSP"
         }
       }
     },

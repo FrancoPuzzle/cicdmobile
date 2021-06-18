@@ -110,7 +110,7 @@ jobs:
           target: default
           arch: x86_64
           profile: pixel
-          avd-name: emu
+          avd-name: Pixel_API_29_AOSP
           script: bash scripts/run-e2e-android-release.sh
 
       # - name: Download Android Emulator Image
