@@ -101,7 +101,7 @@ jobs:
           architecture: 'x64'
 
       - name: Run Detox Build
-        run: yarn e2e:buil
+        run: yarn e2e:build
 
       - name: Run Detox Test(s)
         uses: reactivecircus/android-emulator-runner@v2
