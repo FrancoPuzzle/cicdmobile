@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ButtonTouchableStyle, Title, getSizeStyle } from './styles';
-import AnimatedSqueeze from '../AnimatedSqueeze';
+import { ButtonTouchableStyle, Title, getSizeStyle } from './Button.Styled';
+import AnimatedSqueeze from '../animated-squeeze';
 
 export type Type = 'primary' | 'secondary';
 export type Size = 'small' | 'medium' | 'big' | 'auto';

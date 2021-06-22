@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { logOut } from '../../redux/actions/auth';
 
-import { Container, Title } from './styles';
+import { Container, Title } from './Home.Styled';
 import { Button, Spacing } from '../../components';
 import { Navigator } from '../../navigation';
 

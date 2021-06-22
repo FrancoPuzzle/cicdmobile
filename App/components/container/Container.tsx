@@ -3,7 +3,7 @@ import * as React from 'react';
 
 // COMPONENTS
 import { ViewStyle } from 'react-native';
-import { _Container } from './styles';
+import { _Container } from './Container.Styled';
 
 interface Props {
   children: React.ReactNode | React.ReactNodeArray;

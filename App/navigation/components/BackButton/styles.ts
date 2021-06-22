@@ -1,8 +1,6 @@
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import styled from 'styled-components';
 import { Typography as _Typography } from '../../../components';
-import icon from 'react-native-vector-icons/MaterialIcons';
-import { theme } from '../../../styles';
 
 export const Container = styled(View)({
   flexDirection: 'row',
@@ -15,11 +13,11 @@ export const IconContainer = styled(View)({
   padding: 5,
 });
 
-export const Icon = styled(icon)((p) => ({
-  color: p.color || theme.text.primary,
-  fontSize: p.size || 20,
+export const Icon = styled(Text)({
+  color: 'white',
+  fontSize: 20,
   alignSelf: 'flex-start',
-}));
+});
 
 export const Typography = styled(_Typography)((p: any) => ({
   marginRight: 35,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextStyle } from 'react-native';
 
-import { StyledText } from './styles';
+import { StyledText } from './Typography.styled';
 import { theme } from '../../styles';
 
 export const TypographyVariant = {

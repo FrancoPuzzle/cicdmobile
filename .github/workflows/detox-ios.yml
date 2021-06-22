@@ -83,7 +83,7 @@ jobs:
           brew tap wix/brew
           brew install applesimutils
 
-      - name: Install node_modules & deploy with specific XCode version
+      - name: Install node_modules
         run: |
           yarn install --frozen-lockfile
 
@@ -93,10 +93,10 @@ jobs:
 
       - name: build Detox
         run: |
-          yarn build-detox-ios
+          yarn e2e:build:ios:debug
 
       - name: iOS test
         timeout-minutes: 10
         run: |
           npx detox clean-framework-cache && npx detox build-framework-cache
-          yarn test-detox-ios
+          yarn e2e:test:ios:debug

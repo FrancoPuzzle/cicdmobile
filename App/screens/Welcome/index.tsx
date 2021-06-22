@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigator } from '../../navigation';
 import { Button } from '../../components';
 import { PuzzleLogo } from '../../assets/images';
-import { Container, WelcomeImage, Title } from './styles';
+import { Container, WelcomeImage, Title } from './Welcome.Styled';
 
 const Welcome = () => {
   const { goToPage } = Navigator();

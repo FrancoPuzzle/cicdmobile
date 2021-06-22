@@ -16,22 +16,13 @@ interface Props {
   testID?: string;
 }
 
-const BackButton = ({
-  text,
-  style,
-  iconStyle,
-  textSize,
-  size,
-  iconColor,
-  textColor,
-  testID,
-}: Props) => {
+const BackButton = ({ text, style, textSize, textColor, testID }: Props) => {
   const { goBack } = Navigator();
   return (
     <TouchableOpacity testID={testID} onPress={goBack} style={{ width: '100%' }}>
       <Container style={style}>
         <IconContainer>
-          <Icon name="arrow-back" size={size} color={iconColor} style={iconStyle} />
+          <Icon>Back</Icon>
         </IconContainer>
         {!!text && (
           <TextContainer>

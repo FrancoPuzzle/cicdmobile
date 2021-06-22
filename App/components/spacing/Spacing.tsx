@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { _Spacing } from './styles';
+import { _Spacing } from './Spacing.Styled';
 import { rs } from '../../styles';
 
 const Spacing = ({ size, isHorizontal }: { size: number; isHorizontal: boolean }) => {

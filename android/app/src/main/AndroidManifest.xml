@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.mobilecicd">
+  package="com.addiMobile">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

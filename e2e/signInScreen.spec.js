@@ -1,6 +1,6 @@
 describe('Sign In Screen', () => {
   beforeEach(async () => {
-    await device.reloadReactNative();
+    // await device.reloadReactNative();
   });
 
   it('Should show the Welcome Screen', async () => {
@@ -28,25 +28,25 @@ describe('Sign In Screen', () => {
     await expect(element(by.id('signin_screen'))).toBeVisible();
   });
 
-  // it('Should be able to write the Email in the text Input', async () => {
-  //   await element(by.id('email_field')).typeText('user@email.com');
-  // });
+  it('Should be able to write the Email in the text Input', async () => {
+    await element(by.id('email_field')).typeText('user@email.com');
+  });
 
-  // it('Should be able to delete the text of the Password in the text Input', async () => {
-  //   await element(by.id('password_field')).clearText();
-  // });
+  it('Should be able to delete the text of the Password in the text Input', async () => {
+    await element(by.id('password_field')).clearText();
+  });
 
-  // it('Should not be able to Sign In if the password field is invalid.', async () => {
-  //   await element(by.text('Sign In')).tap();
-  //   await expect(element(by.id('signin_screen'))).toBeVisible();
-  // });
+  it('Should not be able to Sign In if the password field is invalid.', async () => {
+    await element(by.text('Sign In')).tap();
+    await expect(element(by.id('signin_screen'))).toBeVisible();
+  });
 
-  // it('Should be able to write the Password in the text Input', async () => {
-  //   await element(by.id('password_field')).typeText('Asd123123');
-  // });
+  it('Should be able to write the Password in the text Input', async () => {
+    await element(by.id('password_field')).typeText('Asd123123');
+  });
 
-  // it('should leave the screen after tapping Sign In button', async () => {
-  //   await element(by.text('Sign In')).tap();
-  //   await expect(element(by.id('signin_screen'))).toBeNotVisible();
-  // });
+  it('should leave the screen after tapping Sign In button', async () => {
+    await element(by.text('Sign In')).tap();
+    await expect(element(by.id('signin_screen'))).toBeNotVisible();
+  });
 });
