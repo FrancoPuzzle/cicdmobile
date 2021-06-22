@@ -86,6 +86,13 @@ jobs:
       - name: Install node_modules & deploy with specific XCode version
         run: |
           yarn install --frozen-lockfile
+
+      - name: Install Pods
+        run: |
+          cd ios && pod install && cd ..
+
+      - name: build Detox
+        run: |
           yarn build-detox-ios
 
       - name: iOS test
