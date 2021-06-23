@@ -136,11 +136,11 @@
         }
       },
       "ios.sim.release": {
-        "binaryPath": "./ios/build/Build/Products/Release-iphonesimulator/testReactNativeDetox.app",
-        "build": "xcodebuild -workspace ios/addiMobile.xcworkspace -scheme addiMobile -configuration release -sdk iphonesimulator -derivedDataPath ios/build",
+        "binaryPath": "ios/build/Build/Products/Test-iphonesimulator/addiMobile.app",
+        "build": "xcodebuild -workspace ios/addiMobile.xcworkspace -scheme addiMobile_test -configuration Test -sdk iphonesimulator -derivedDataPath ios/build EXCLUDED_ARCHS=arm64 DETOX=1",
         "type": "ios.simulator",
         "device": {
-          "type": "iPhone 11"
+          "type": "iPad Air (4th generation)"
         }
       },
       "android.emu.debug": {
