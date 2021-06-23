@@ -136,11 +136,11 @@
         }
       },
       "ios.sim.release": {
-        "binaryPath": "ios/build/Build/Products/Test-iphonesimulator/addiMobile.app",
-        "build": "xcodebuild -workspace ios/addiMobile.xcworkspace -scheme addiMobile_test -configuration Test -sdk iphonesimulator -derivedDataPath ios/build EXCLUDED_ARCHS=arm64 DETOX=1",
+        "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/addiMobile.app",
+        "build": "xcodebuild -workspace ios/addiMobile.xcworkspace -scheme addiMobile -configuration Release -sdk iphonesimulator -derivedDataPath ios/build EXCLUDED_ARCHS=arm64 DETOX=1",
         "type": "ios.simulator",
         "device": {
-          "type": "iPad Air (4th generation)"
+          "type": "iPhone 11"
         }
       },
       "android.emu.debug": {
