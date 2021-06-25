@@ -49,4 +49,4 @@ jobs:
           $ANDROID_HOME/platform-tools/adb devices
           echo "Emulator started"
       - name: Android Detox
-        run: yarn start & detox test --configuration android.emu.debug
+        run: yarn mobile:start & yarn e2e:test:android:debug
