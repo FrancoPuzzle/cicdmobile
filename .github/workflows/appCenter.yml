@@ -17,8 +17,8 @@ jobs:
       - name: Install node_modules
         run: |
           yarn install
-      - name: build release
-        run: cd android && chmod +x gradlew && ./gradlew assembleRelease
+      - name: build debug
+        run: cd android && chmod +x gradlew && ./gradlew assembleDebug
       # - name: Upload Artifact
       #   uses: actions/upload-artifact@v1
       #   with:
@@ -30,6 +30,6 @@ jobs:
           appName: franfara/cicdmobile
           token: 1f6d5f8112e1fe5082b2b749347453dd8d89bcd5
           group: Collaborators
-          file: android/app/build/outputs/apk/release/app-release.apk
+          file: android/app/build/outputs/apk/debug/app-debug.apk
           notifyTesters: true
           debug: false
