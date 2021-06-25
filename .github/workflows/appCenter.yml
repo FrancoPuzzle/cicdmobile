@@ -1,0 +1,28 @@
+name: Build, code quality, tests
+
+on:
+  push:
+    branches:
+      - addiMobile
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: build release
+        run: ./gradlew assembleRelease
+      - name: upload artefact to App Center
+        uses: wzieba/AppCenter-Github-Action@v1
+        with:
+          appName: franfara/cicdmobile
+          token: 1f6d5f8112e1fe5082b2b749347453dd8d89bcd5
+          group: Collaborators
+          file: app/build/outputs/apk/release/app-release-unsigned.apk
+          notifyTesters: true
+          debug: false
