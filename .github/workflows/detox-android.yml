@@ -50,6 +50,6 @@ jobs:
           echo "Emulator started"
       - name: Metro Server
         timeout-minutes: 10
-        run: yarn mobile:start
+        run: yarn mobile:start &
       - name: Android Detox
         run: yarn e2e:test:android:debug
