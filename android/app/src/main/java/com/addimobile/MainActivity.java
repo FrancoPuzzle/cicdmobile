@@ -1,4 +1,4 @@
-package com.addiMobile;
+package com.addimobile;
 
 import com.facebook.react.ReactActivity;
 
