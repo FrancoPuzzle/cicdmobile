@@ -3,12 +3,12 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'addiMobile' do
+target 'addimobile' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'addiMobileTests' do
+  target 'addimobileTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -23,10 +23,10 @@ target 'addiMobile' do
   end
 end
 
-target 'addiMobile-tvOS' do
-  # Pods for addiMobile-tvOS
+target 'addimobile-tvOS' do
+  # Pods for addimobile-tvOS
 
-  target 'addiMobile-tvOSTests' do
+  target 'addimobile-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
