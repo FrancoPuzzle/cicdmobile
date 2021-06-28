@@ -48,5 +48,7 @@ jobs:
           $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
           $ANDROID_HOME/platform-tools/adb devices
           echo "Emulator started"
+      - name: Metro Server
+        run: yarn mobile:start
       - name: Android Detox
-        run: yarn mobile:start & yarn e2e:test:android:debug
+        run: yarn e2e:test:android:debug
