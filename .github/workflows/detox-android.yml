@@ -52,4 +52,4 @@ jobs:
         timeout-minutes: 10
         run: yarn mobile:start &
       - name: Android Detox
-        run: yarn e2e:test:android:debug
+        run: sleep 10 && yarn e2e:test:android:debug
