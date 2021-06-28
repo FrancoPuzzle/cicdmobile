@@ -20,6 +20,7 @@
     "e2e:test:ios:debug": "detox test --configuration ios.sim.debug",
     "e2e:test:ios:release": "detox test --configuration ios.sim.release",
     "e2e:test:android:debug": "detox test --configuration android.emu.debug",
+    "e2e:test:android:debugAt": "detox test --configuration android.emu.debugAt",
     "e2e:test:android:release": "detox test --configuration android.emu.release",
     "storybook": "adb reverse tcp:7007 tcp:7007 && start-storybook -p 7007",
     "build-storybook": "build-storybook",
@@ -149,6 +150,14 @@
         "type": "android.emulator",
         "device": {
           "avdName": "emu"
+        }
+      },
+      "android.emu.debugAt": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.attached",
+        "device": {
+          "adbName": "ZY322HRHNV"
         }
       },
       "android.emu.release": {

@@ -5,16 +5,9 @@
  * @format
  */
 
-const path = require('path');
-
-const watchFolders = [
-  path.resolve(__dirname + '/../../..'), //Relative path to our node_modules monoreppo
-];
-
 module.exports = {
-  watchFolders,
   transformer: {
-    mOptions: async () => ({
+    getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
         inlineRequires: false,
