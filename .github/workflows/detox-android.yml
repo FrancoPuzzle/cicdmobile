@@ -49,6 +49,7 @@ jobs:
           $ANDROID_HOME/platform-tools/adb devices
           echo "Emulator started"
       - name: Metro Server
-        run: yarn mobile:start
+        timeout-minutes: 10
+        run: nohup yarn mobile:start
       - name: Android Detox
         run: yarn e2e:test:android:debug
