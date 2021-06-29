@@ -1,5 +1,4 @@
 const detox = require('detox');
-const config = require('./conf.json');
 const adapter = require('detox/runners/jest/adapter');
 const specReporter = require('detox/runners/jest/specReporter');
 
@@ -13,7 +12,7 @@ jasmine.getEnv().addReporter(adapter);
 jasmine.getEnv().addReporter(specReporter);
 
 beforeAll(async () => {
-  //await detox.init(config);
+  await detox.init();
   await device.launchApp();
 }, 300000);
 
