@@ -23,6 +23,7 @@
     "e2e:test:android:debug": "detox test --configuration android.emu.debug --loglevel verbose",
     "e2e:test:android:debugAt": "detox test --configuration android.emu.debugAt --loglevel verbose",
     "e2e:test:android:release": "detox test --configuration android.emu.release",
+    "e2e:test:android:releaseAt": "detox test --configuration android.emu.releaseAt",
     "storybook": "adb reverse tcp:7007 tcp:7007 && start-storybook -p 7007",
     "build-storybook": "build-storybook",
     "prestorybook": "rnstl",

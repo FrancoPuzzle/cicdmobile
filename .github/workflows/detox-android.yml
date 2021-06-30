@@ -38,7 +38,7 @@ jobs:
 
       - name: Build for detox
         run: |
-          yarn e2e:build:android:debug
+          yarn e2e:build:android:release
       - name: Android Emulator
         timeout-minutes: 10
         continue-on-error: true
@@ -53,4 +53,4 @@ jobs:
         run: |
           export PATH=$PATH:$ANDROID_HOME/platform-tools
           yarn mobile:start &
-          yarn e2e:test:android:debug
+          yarn e2e:test:android:release
