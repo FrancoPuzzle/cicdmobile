@@ -48,7 +48,8 @@ jobs:
           $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
           $ANDROID_HOME/platform-tools/adb devices
           echo "Emulator started"
-      - name: Run tests
+      - name: Run command
         run: |
-          yarn mobile:start &
-          yarn e2e:test:android:debug
+          "/Users/runner/Library/Android/sdk/platform-tools/adb" -s emulator-5554 shell "ps | grep \"com\.addimobile$\""
+#          yarn mobile:start &
+#          yarn e2e:test:android:debug
