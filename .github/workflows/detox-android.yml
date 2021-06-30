@@ -49,7 +49,20 @@ jobs:
           $ANDROID_HOME/platform-tools/adb devices
           echo "Emulator started"
       - name: Run command
+        continue-on-error: true
         run: |
-          "/Users/runner/Library/Android/sdk/platform-tools/adb" -s emulator-5554 shell "ps | grep \"com\.addimobile$\""
+          /Users/runner/Library/Android/sdk/platform-tools/adb -s emulator-5554 shell "ps | grep \"com\.addimobile$\""
+      - name: Run command 2
+        continue-on-error: true
+        run: |
+          ps | grep \"com\.addimobile$\"
+      - name: Run command 3
+        continue-on-error: true
+        run: |
+          ps | grep com.addimobile
+      - name: Run command 4
+        continue-on-error: true
+        run: |
+          ps | grep com.addimobile$
 #          yarn mobile:start &
 #          yarn e2e:test:android:debug
