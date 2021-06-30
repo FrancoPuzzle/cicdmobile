@@ -37,7 +37,7 @@
         "build": "cd android && chmod +x gradlew && ./gradlew app:assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
         "type": "android.emulator",
         "device": {
-          "avdName": "Pixel_2_API_29"
+          "avdName": "emu"
         }
       },
       "android.emu.releaseAt": {
