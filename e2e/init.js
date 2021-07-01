@@ -1,7 +1,6 @@
 const detox = require('detox');
 const adapter = require('detox/runners/jest/adapter');
 const specReporter = require('detox/runners/jest/specReporter');
-const config = require('./conf.json');
 
 // Set the default timeout
 jest.setTimeout(120000);
