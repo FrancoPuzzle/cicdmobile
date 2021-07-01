@@ -8,7 +8,7 @@ describe('Sign In Screen', () => {
   });
 
   it('Should go to Sign In screen after tapping Sign In button on Welcome screen', async () => {
-    await element(by.text('Go To Sign In22')).tap();
+    await element(by.text('Go To Sign In')).tap();
     await expect(element(by.id('signin_screen'))).toBeVisible();
   });
 
