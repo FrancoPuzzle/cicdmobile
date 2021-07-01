@@ -24,14 +24,6 @@
           "avdName": "emu"
         }
       },
-      "android.emu.debugAt": {
-        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
-        "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
-        "type": "android.attached",
-        "device": {
-          "adbName": "ZY322HRHNV"
-        }
-      },
       "android.emu.release": {
         "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
         "build": "cd android && chmod +x gradlew && ./gradlew app:assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
@@ -40,12 +32,20 @@
           "avdName": "emu"
         }
       },
-      "android.emu.releaseAt": {
+      "android.at.debug": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android && chmod +x gradlew && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.attached",
+        "device": {
+          "adbName": "ADBNAME"
+        }
+      },
+      "android.at.release": {
         "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
         "build": "cd android && ./gradlew app:assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
         "type": "android.attached",
         "device": {
-          "adbName": "ZY322HRHNV"
+          "adbName": "ADBNAME"
         }
       }
     },
