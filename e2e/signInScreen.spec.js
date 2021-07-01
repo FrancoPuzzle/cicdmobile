@@ -6,7 +6,7 @@ describe('Sign In Screen', () => {
   it('Should show the Welcome Screen', async () => {
     await expect(element(by.id('welcome_screen'))).toBeVisible();
   });
-/*
+
   it('Should go to Sign In screen after tapping Sign In button on Welcome screen', async () => {
     await element(by.text('Go To Sign In')).tap();
     await expect(element(by.id('signin_screen'))).toBeVisible();
@@ -47,5 +47,5 @@ describe('Sign In Screen', () => {
   it('should leave the screen after tapping Sign In button', async () => {
     await element(by.text('Sign In')).tap();
     await expect(element(by.id('signin_screen'))).toBeNotVisible();
-  });*/
+  });
 });

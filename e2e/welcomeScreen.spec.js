@@ -7,7 +7,7 @@ describe('Welcome Screen Test', () => {
     await expect(element(by.id('welcome_screen'))).toBeVisible();
   });
 
-  /*it('Should have the Puzzle logo', async () => {
+  it('Should have the Puzzle logo', async () => {
     await expect(element(by.id('puzzle_logo'))).toBeVisible();
   });
 
@@ -20,5 +20,5 @@ describe('Welcome Screen Test', () => {
   it('Should have a Go To Sign In button', async () => {
     await expect(element(by.id('go_to_signin_button'))).toBeVisible(); // Code driven
     await expect(element(by.text('Go To Sign In'))).toBeVisible(); // UI-UX driven
-  });*/
+  });
 });
