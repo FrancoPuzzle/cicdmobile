@@ -22,11 +22,6 @@ describe('Sign In Screen', () => {
     await element(by.id('email_field')).clearText();
   });
 
-  it('Should not be able to Sign In if the email field is invalid.', async () => {
-    await element(by.text('Sign In')).tap();
-    await expect(element(by.id('signin_screen'))).toBeVisible();
-  });
-
   it('Should be able to write the Email in the text Input', async () => {
     await element(by.id('email_field')).typeText('user@email.com');
   });
