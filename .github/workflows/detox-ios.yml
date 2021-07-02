@@ -50,4 +50,4 @@ jobs:
         timeout-minutes: 10
         run: |
           npx detox clean-framework-cache && npx detox build-framework-cache
-          yarn e2e:test:ios:relesea
+          yarn e2e:test:ios:release
